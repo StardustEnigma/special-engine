@@ -1,0 +1,663 @@
+[INFO] 2025-09-22 21:29:36,595 django.utils.autoreload 23520 4132 Watching for file changes with StatReloader
+[INFO] 2025-09-22 21:29:45,387 django.server 23520 13168 "GET / HTTP/1.1" 200 54675
+[INFO] 2025-09-22 21:29:45,455 django.server 23520 13168 "GET /static/css/dist/styles.css?v=1758556785 HTTP/1.1" 200 13941
+[ERROR] 2025-09-22 21:30:12,700 info.views 23520 11860 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:30:12,778 django.server 23520 11860 "GET /atharva/projects/ HTTP/1.1" 500 161337
+[INFO] 2025-09-22 21:30:15,404 django.server 23520 13584 "GET / HTTP/1.1" 200 54675
+[INFO] 2025-09-22 21:30:15,478 django.server 23520 13584 "GET /static/css/dist/styles.css?v=1758556815 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:30:15,592 django.server 23520 13584 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 200 623
+[INFO] 2025-09-22 21:30:15,650 django.server 23520 13584 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 200 2711
+[INFO] 2025-09-22 21:30:15,690 django.server 23520 19756 "GET /static/django-browser-reload/reload-listener.js HTTP/1.1" 200 623
+[WARNING] 2025-09-22 21:30:15,778 django.server 23520 15204 "GET /favicon.ico HTTP/1.1" 404 4400
+[ERROR] 2025-09-22 21:30:15,881 info.views 23520 11860 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:30:15,943 django.server 23520 11860 "GET /atharva/projects/ HTTP/1.1" 500 161474
+[INFO] 2025-09-22 21:30:16,986 django.server 23520 19756 "GET /static/django-browser-reload/reload-worker.js HTTP/1.1" 200 2711
+[INFO] 2025-09-22 21:30:41,010 django.server 23520 15204 "GET / HTTP/1.1" 200 54675
+[INFO] 2025-09-22 21:30:41,070 django.server 23520 15204 "GET /static/css/dist/styles.css?v=1758556841 HTTP/1.1" 200 13941
+[ERROR] 2025-09-22 21:30:52,403 info.views 23520 7452 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:30:52,464 django.server 23520 7452 "GET /atharva/projects/ HTTP/1.1" 500 161513
+[INFO] 2025-09-22 21:30:55,519 django.server 23520 3776 "GET /about/ HTTP/1.1" 200 65353
+[INFO] 2025-09-22 21:30:55,584 django.server 23520 3776 "GET /static/css/dist/styles.css?v=1758556855 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:31:08,840 django.server 23520 11308 "GET / HTTP/1.1" 200 54675
+[INFO] 2025-09-22 21:31:09,031 django.server 23520 11308 "GET /static/css/dist/styles.css?v=1758556868 HTTP/1.1" 200 13941
+[WARNING] 2025-09-22 21:31:09,292 django.server 23520 11308 "GET /favicon.ico HTTP/1.1" 404 4400
+[INFO] 2025-09-22 21:31:19,156 django.server 23520 11308 "GET / HTTP/1.1" 200 54675
+[INFO] 2025-09-22 21:31:19,276 django.server 23520 11308 "GET /static/css/dist/styles.css?v=1758556879 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:31:30,551 django.server 23520 11308 "GET /about/ HTTP/1.1" 200 65353
+[INFO] 2025-09-22 21:31:30,672 django.server 23520 11308 "GET /static/css/dist/styles.css?v=1758556890 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:32:05,985 django.server 23520 11308 "GET /contact/ HTTP/1.1" 200 60908
+[INFO] 2025-09-22 21:32:06,072 django.server 23520 11308 "GET /static/css/dist/styles.css?v=1758556925 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:32:09,549 django.utils.autoreload 23520 4132 C:\Users\Atharva\Documents\Display\Portfolio\info\views.py changed, reloading.
+[INFO] 2025-09-22 21:32:10,573 django.utils.autoreload 15096 6976 Watching for file changes with StatReloader
+[ERROR] 2025-09-22 21:32:10,951 info.views 15096 25032 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:11,064 django.server 15096 25032 "GET /atharva/projects/ HTTP/1.1" 500 161360
+[ERROR] 2025-09-22 21:32:12,972 info.views 15096 2192 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:13,030 django.server 15096 2192 "GET /atharva/projects/ HTTP/1.1" 500 161491
+[ERROR] 2025-09-22 21:32:13,637 info.views 15096 16144 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:13,700 django.server 15096 16144 "GET /atharva/projects/ HTTP/1.1" 500 161491
+[ERROR] 2025-09-22 21:32:14,022 info.views 15096 1996 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:14,120 django.server 15096 1996 "GET /atharva/projects/ HTTP/1.1" 500 161491
+[ERROR] 2025-09-22 21:32:14,396 info.views 15096 7080 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:14,483 django.server 15096 7080 "GET /atharva/projects/ HTTP/1.1" 500 161491
+[ERROR] 2025-09-22 21:32:14,713 info.views 15096 15540 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:14,801 django.server 15096 15540 "GET /atharva/projects/ HTTP/1.1" 500 161491
+[ERROR] 2025-09-22 21:32:15,035 info.views 15096 19368 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:15,124 django.server 15096 19368 "GET /atharva/projects/ HTTP/1.1" 500 161491
+[ERROR] 2025-09-22 21:32:15,400 info.views 15096 10856 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:15,485 django.server 15096 10856 "GET /atharva/projects/ HTTP/1.1" 500 161491
+[ERROR] 2025-09-22 21:32:31,695 info.views 15096 10376 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:31,756 django.server 15096 10376 "GET /atharva/projects/ HTTP/1.1" 500 161834
+[ERROR] 2025-09-22 21:32:35,454 info.views 15096 10376 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:35,527 django.server 15096 10376 "GET /atharva/projects/ HTTP/1.1" 500 161971
+[ERROR] 2025-09-22 21:32:39,881 info.views 15096 10376 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:39,944 django.server 15096 10376 "GET /atharva/projects/ HTTP/1.1" 500 161971
+[ERROR] 2025-09-22 21:32:47,793 info.views 15096 10376 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:32:47,854 django.server 15096 10376 "GET /atharva/projects/ HTTP/1.1" 500 161832
+[INFO] 2025-09-22 21:32:51,361 django.server 15096 22104 "GET /skills/ HTTP/1.1" 200 84221
+[INFO] 2025-09-22 21:32:51,449 django.server 15096 22104 "GET /static/css/dist/styles.css?v=1758556971 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:32:55,904 django.server 15096 13884 "GET /about/ HTTP/1.1" 200 65314
+[INFO] 2025-09-22 21:32:55,950 django.server 15096 13884 "GET /static/css/dist/styles.css?v=1758556975 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:32:57,284 django.server 15096 10376 "GET /about/ HTTP/1.1" 200 65353
+[INFO] 2025-09-22 21:32:57,445 django.server 15096 10376 "GET /static/css/dist/styles.css?v=1758556977 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:33:00,359 django.server 15096 10376 "GET /atharva/contact/ HTTP/1.1" 200 61765
+[INFO] 2025-09-22 21:33:00,459 django.server 15096 10376 "GET /static/css/dist/styles.css?v=1758556980 HTTP/1.1" 200 13941
+[ERROR] 2025-09-22 21:33:44,163 info.views 15096 13884 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:33:44,247 django.server 15096 13884 "GET /atharva/projects/ HTTP/1.1" 500 161343
+[INFO] 2025-09-22 21:34:16,055 django.server 15096 9768 "GET / HTTP/1.1" 200 54675
+[INFO] 2025-09-22 21:34:16,303 django.server 15096 9768 "GET /static/css/dist/styles.css?v=1758557056 HTTP/1.1" 200 13941
+[ERROR] 2025-09-22 21:34:20,816 info.views 15096 9768 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:34:20,911 django.server 15096 9768 "GET /atharva/projects/ HTTP/1.1" 500 161826
+[INFO] 2025-09-22 21:34:59,293 django.utils.autoreload 15096 6976 C:\Users\Atharva\Documents\Display\Portfolio\info\views.py changed, reloading.
+[INFO] 2025-09-22 21:35:00,376 django.utils.autoreload 18052 17644 Watching for file changes with StatReloader
+[ERROR] 2025-09-22 21:35:00,683 info.views 18052 25024 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:35:00,723 django.server 18052 25024 "GET /atharva/projects/ HTTP/1.1" 500 59390
+[INFO] 2025-09-22 21:35:00,792 django.server 18052 25024 "GET /static/css/dist/styles.css?v=1758557100 HTTP/1.1" 200 13941
+[ERROR] 2025-09-22 21:35:08,061 info.views 18052 14080 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:35:08,065 django.server 18052 14080 "GET /atharva/projects/ HTTP/1.1" 500 59390
+[INFO] 2025-09-22 21:35:08,175 django.server 18052 14080 "GET /static/css/dist/styles.css?v=1758557108 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:35:10,998 django.server 18052 23796 "GET / HTTP/1.1" 200 54675
+[INFO] 2025-09-22 21:35:11,093 django.server 18052 23796 "GET /static/css/dist/styles.css?v=1758557110 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:35:15,763 django.server 18052 23048 "GET /about/ HTTP/1.1" 200 65353
+[INFO] 2025-09-22 21:35:15,851 django.server 18052 23048 "GET /static/css/dist/styles.css?v=1758557115 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:35:17,318 django.server 18052 7136 "GET /atharva/contact/ HTTP/1.1" 200 61765
+[INFO] 2025-09-22 21:35:17,482 django.server 18052 7136 "GET /static/css/dist/styles.css?v=1758557117 HTTP/1.1" 200 13941
+[ERROR] 2025-09-22 21:35:35,423 info.views 18052 23304 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:35:35,428 django.server 18052 23304 "GET /atharva/projects/ HTTP/1.1" 500 59390
+[INFO] 2025-09-22 21:35:35,734 django.server 18052 23304 "GET /static/css/dist/styles.css?v=1758557135 HTTP/1.1" 200 13941
+[ERROR] 2025-09-22 21:35:38,028 info.views 18052 25892 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:35:38,033 django.server 18052 25892 "GET /atharva/projects/ HTTP/1.1" 500 59390
+[INFO] 2025-09-22 21:35:38,195 django.server 18052 25892 "GET /static/css/dist/styles.css?v=1758557138 HTTP/1.1" 200 13941
+[ERROR] 2025-09-22 21:35:47,274 info.views 18052 23304 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:35:47,282 django.server 18052 23304 "GET /atharva/projects/ HTTP/1.1" 500 59390
+[INFO] 2025-09-22 21:35:47,373 django.server 18052 23304 "GET /static/css/dist/styles.css?v=1758557147 HTTP/1.1" 200 13941
+[ERROR] 2025-09-22 21:35:49,161 info.views 18052 1748 Error in projects_view: Cannot filter a query once a slice has been taken.
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+[ERROR] 2025-09-22 21:35:49,168 django.server 18052 1748 "GET /atharva/projects/ HTTP/1.1" 500 59390
+[INFO] 2025-09-22 21:35:49,282 django.server 18052 1748 "GET /static/css/dist/styles.css?v=1758557149 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:35:52,660 django.server 18052 12976 "GET /admin/ HTTP/1.1" 200 12726
+[INFO] 2025-09-22 21:35:55,781 django.server 18052 15636 "GET /admin/info/project/ HTTP/1.1" 200 14030
+[INFO] 2025-09-22 21:35:55,830 django.server 18052 15636 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[INFO] 2025-09-22 21:42:28,564 django.utils.autoreload 18052 17644 C:\Users\Atharva\Documents\Display\Portfolio\info\views.py changed, reloading.
+[INFO] 2025-09-22 21:42:29,585 django.utils.autoreload 12272 4184 Watching for file changes with StatReloader
+[INFO] 2025-09-22 21:42:29,886 django.server 12272 9000 "GET /atharva/projects/ HTTP/1.1" 200 66410
+[INFO] 2025-09-22 21:42:30,069 django.server 12272 9000 "GET /static/css/dist/styles.css?v=1758557549 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:42:30,112 django.server 12272 6196 "GET /admin/info/project/ HTTP/1.1" 200 14030
+[INFO] 2025-09-22 21:42:30,138 django.server 12272 6196 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+[INFO] 2025-09-22 21:42:30,487 django.server 12272 9000 "GET /projects/thumbnails/Screenshot_2025-09-22_195907.png HTTP/1.1" 304 0
+[INFO] 2025-09-22 21:42:30,488 django.server 12272 17380 "GET /projects/screenshots/Screenshot_2025-09-22_195923.png HTTP/1.1" 304 0
+[INFO] 2025-09-22 21:42:30,516 django.server 12272 24668 "GET /projects/screenshots/Screenshot_2025-09-22_202154.png HTTP/1.1" 304 0
+[INFO] 2025-09-22 21:42:30,644 django.server 12272 9000 "GET /projects/screenshots/Screenshot_2025-09-22_202226.png HTTP/1.1" 304 0
+[INFO] 2025-09-22 21:42:30,645 django.server 12272 17380 "GET /projects/thumbnails/Screenshot_2025-09-22_195633.png HTTP/1.1" 304 0
+[INFO] 2025-09-22 21:42:30,645 django.server 12272 22420 "GET /projects/screenshots/Screenshot_2025-09-22_195743.png HTTP/1.1" 304 0
+[INFO] 2025-09-22 21:42:31,666 django.server 12272 17380 "GET /projects/screenshots/Screenshot_2025-09-22_201942.png HTTP/1.1" 304 0
+[INFO] 2025-09-22 21:42:31,666 django.server 12272 22420 "GET /projects/screenshots/Screenshot_2025-09-22_202011.png HTTP/1.1" 304 0
+[INFO] 2025-09-22 21:43:56,893 django.server 12272 17380 "GET /atharva/contact/ HTTP/1.1" 200 61765
+[INFO] 2025-09-22 21:43:57,063 django.server 12272 17380 "GET /static/css/dist/styles.css?v=1758557636 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:44:15,294 django.server 12272 17380 "POST /atharva/contact/ HTTP/1.1" 302 0
+[INFO] 2025-09-22 21:44:15,351 django.server 12272 17380 "GET /atharva/contact/ HTTP/1.1" 200 62314
+[INFO] 2025-09-22 21:44:15,449 django.server 12272 17380 "GET /static/css/dist/styles.css?v=1758557655 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:44:20,337 django.server 12272 10000 "GET / HTTP/1.1" 200 54675
+[INFO] 2025-09-22 21:44:20,532 django.server 12272 10000 "GET /static/css/dist/styles.css?v=1758557660 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:50:29,012 django.server 12272 19780 "GET / HTTP/1.1" 200 56411
+[INFO] 2025-09-22 21:50:29,157 django.server 12272 19780 "GET /static/css/dist/styles.css?v=1758558029 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:50:37,337 django.server 12272 5052 "GET /skills/ HTTP/1.1" 200 85957
+[INFO] 2025-09-22 21:50:37,490 django.server 12272 5052 "GET /static/css/dist/styles.css?v=1758558037 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:53:50,708 django.utils.autoreload 12272 4184 C:\Users\Atharva\Documents\Display\Portfolio\Portfolio\views.py changed, reloading.
+[INFO] 2025-09-22 21:53:51,938 django.utils.autoreload 26280 1820 Watching for file changes with StatReloader
+[INFO] 2025-09-22 21:56:30,207 django.utils.autoreload 26280 1820 C:\Users\Atharva\Documents\Display\Portfolio\Portfolio\urls.py changed, reloading.
+[INFO] 2025-09-22 21:56:31,170 django.utils.autoreload 26512 7120 Watching for file changes with StatReloader
+[INFO] 2025-09-22 21:56:32,731 django.server 26512 21056 "GET /skills/ HTTP/1.1" 200 85957
+[INFO] 2025-09-22 21:56:32,944 django.server 26512 21056 "GET /static/css/dist/styles.css?v=1758558392 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 21:57:39,028 django.server 26512 4932 "GET / HTTP/1.1" 200 56411
+[INFO] 2025-09-22 21:57:39,171 django.server 26512 4932 "GET /static/css/dist/styles.css?v=1758558459 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 22:01:30,693 django.utils.autoreload 26512 7120 C:\Users\Atharva\Documents\Display\Portfolio\Portfolio\views.py changed, reloading.
+[INFO] 2025-09-22 22:01:31,783 django.utils.autoreload 19280 17204 Watching for file changes with StatReloader
+[INFO] 2025-09-22 22:01:32,466 django.server 19280 4064 "GET / HTTP/1.1" 200 56411
+[INFO] 2025-09-22 22:01:32,688 django.server 19280 4064 "GET /static/css/dist/styles.css?v=1758558692 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 22:03:36,243 django.utils.autoreload 19280 17204 C:\Users\Atharva\Documents\Display\Portfolio\Portfolio\views.py changed, reloading.
+[INFO] 2025-09-22 22:03:37,355 django.utils.autoreload 6072 16236 Watching for file changes with StatReloader
+[INFO] 2025-09-22 22:03:37,755 django.server 6072 13212 "GET / HTTP/1.1" 200 56411
+[INFO] 2025-09-22 22:03:37,975 django.server 6072 13212 "GET /static/css/dist/styles.css?v=1758558817 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 22:04:40,520 django.utils.autoreload 6072 16236 C:\Users\Atharva\Documents\Display\Portfolio\Portfolio\urls.py changed, reloading.
+[INFO] 2025-09-22 22:04:41,321 django.utils.autoreload 22160 12940 Watching for file changes with StatReloader
+[INFO] 2025-09-22 22:05:06,173 django.utils.autoreload 22160 12940 C:\Users\Atharva\Documents\Display\Portfolio\Portfolio\urls.py changed, reloading.
+[INFO] 2025-09-22 22:05:07,040 django.utils.autoreload 14812 19284 Watching for file changes with StatReloader
+[INFO] 2025-09-22 22:05:07,520 django.server 14812 24092 "GET / HTTP/1.1" 200 56411
+[INFO] 2025-09-22 22:05:07,743 django.server 14812 24092 "GET /static/css/dist/styles.css?v=1758558907 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 22:06:19,074 django.utils.autoreload 14812 19284 C:\Users\Atharva\Documents\Display\Portfolio\Portfolio\urls.py changed, reloading.
+[INFO] 2025-09-22 22:06:20,534 django.utils.autoreload 7444 21252 Watching for file changes with StatReloader
+[INFO] 2025-09-22 22:06:21,192 django.server 7444 13408 "GET / HTTP/1.1" 200 56411
+[INFO] 2025-09-22 22:06:21,434 django.server 7444 13408 "GET /static/css/dist/styles.css?v=1758558981 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 22:06:25,558 django.utils.autoreload 7444 21252 C:\Users\Atharva\Documents\Display\Portfolio\Portfolio\urls.py changed, reloading.
+[INFO] 2025-09-22 22:06:26,899 django.utils.autoreload 20648 24528 Watching for file changes with StatReloader
+[INFO] 2025-09-22 22:06:27,491 django.server 20648 15420 "GET / HTTP/1.1" 200 56411
+[INFO] 2025-09-22 22:06:27,701 django.server 20648 15420 "GET /static/css/dist/styles.css?v=1758558987 HTTP/1.1" 200 13941
+[INFO] 2025-09-22 22:08:50,331 django.utils.autoreload 20648 24528 C:\Users\Atharva\Documents\Display\Portfolio\info\views.py changed, reloading.
+[INFO] 2025-09-22 22:08:51,986 django.utils.autoreload 17108 23652 Watching for file changes with StatReloader
+[INFO] 2025-09-22 22:08:52,721 django.server 17108 22708 "GET / HTTP/1.1" 200 56411
+[INFO] 2025-09-22 22:08:53,012 django.server 17108 22708 "GET /static/css/dist/styles.css?v=1758559132 HTTP/1.1" 200 13941

@@ -538,13 +538,66 @@
             user-select: none;
         }
         
-        /* Focus States for Accessibility */
+        /* REMOVE ALL FOCUS OUTLINES - Updated Section */
+        * {
+            outline: none !important;
+            -webkit-tap-highlight-color: transparent !important;
+            -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+        }
+
+        button:focus,
+        a:focus,
+        input:focus,
+        textarea:focus,
+        select:focus,
         .nav-link:focus,
         .mobile-nav-link:focus,
         .mobile-menu-btn:focus,
         .mobile-close-btn:focus {
-            outline: 2px solid var(--accent-cyan);
-            outline-offset: 2px;
+            outline: none !important;
+            box-shadow: none !important;
+            border: none !important;
+        }
+
+        /* Remove browser default button focus */
+        button::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+
+        /* Remove blue highlight on touch devices */
+        *, *:before, *:after {
+            -webkit-tap-highlight-color: transparent !important;
+            -webkit-tap-highlight-color: rgba(0,0,0,0) !important;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Allow text selection where needed */
+        p, span, div, h1, h2, h3, h4, h5, h6, li, td, th {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
+        /* Remove focus from specific elements on mobile */
+        @media (max-width: 768px) {
+            * {
+                -webkit-tap-highlight-color: transparent !important;
+                -webkit-focus-ring-color: transparent !important;
+                outline: none !important;
+            }
+            
+            button, a, input, select, textarea {
+                -webkit-appearance: none !important;
+                -moz-appearance: none !important;
+                appearance: none !important;
+                outline: none !important;
+                box-shadow: none !important;
+            }
         }
         
         /* High DPI Display Support */
@@ -584,11 +637,11 @@
                 
                 <!-- Desktop Navigation -->
                 <div class="nav-links">
-                    <a href="#home" class="nav-link">Home</a>
+                    <a href="{% url "home" %}" class="nav-link">Home</a>
                     <a href="{% url "skills" %}" class="nav-link">Skills</a>
-                    <a href="{% url 'projects' %}" class="nav-link">Projects</a>
+                    <a href="{% url "info:projects" %}" class="nav-link">Projects</a>
                     <a href="{% url 'about' %}" class="nav-link">About</a>
-                    <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+                    <a href="{% url 'info:contact' %}" class="nav-link">Contact</a>
                 </div>
                 
                 <!-- Enhanced Mobile Menu Button -->
@@ -629,11 +682,11 @@
         </button>
         
         <!-- Navigation Links -->
-        <a href="#home" @click="mobileMenuOpen = false" class="mobile-nav-link">Home</a>
-        <a href="#skills" @click="mobileMenuOpen = false" class="mobile-nav-link">Skills</a>
-        <a href="{% url 'projects' %}" @click="mobileMenuOpen = false" class="mobile-nav-link">Projects</a>
+        <a href="{% url "home" %}" @click="mobileMenuOpen = false" class="mobile-nav-link">Home</a>
+        <a href="{% url "skills" %}" @click="mobileMenuOpen = false" class="mobile-nav-link">Skills</a>
+        <a href="{% url "info:projects" %}" @click="mobileMenuOpen = false" class="mobile-nav-link">Projects</a>
         <a href="{% url 'about' %}" @click="mobileMenuOpen = false" class="mobile-nav-link">About</a>
-        <a href="{% url 'contact' %}" @click="mobileMenuOpen = false" class="mobile-nav-link">Contact</a>
+        <a href="{% url 'info:contact' %}" @click="mobileMenuOpen = false" class="mobile-nav-link">Contact</a>
     </div>
     
     <!-- Main Content -->

@@ -1,0 +1,788 @@
+[ERROR] 2025-09-22 21:30:12,772 django.request 23520 11860 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:30:15,932 django.request 23520 11860 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:30:52,460 django.request 23520 7452 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:11,046 django.request 15096 25032 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:13,023 django.request 15096 2192 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:13,695 django.request 15096 16144 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:14,116 django.request 15096 1996 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:14,478 django.request 15096 7080 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:14,796 django.request 15096 15540 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:15,120 django.request 15096 19368 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:15,484 django.request 15096 10856 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:31,752 django.request 15096 10376 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:35,522 django.request 15096 10376 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:39,944 django.request 15096 10376 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:32:47,849 django.request 15096 10376 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:33:44,242 django.request 15096 13884 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:34:20,904 django.request 15096 9768 Internal Server Error: /atharva/projects/
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 159, in projects_view
+    } for project in projects_page[:10]  # Limit for performance
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\paginator.py", line 202, in __getitem__
+    self.object_list = list(self.object_list)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 384, in __iter__
+    self._fetch_all()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._prefetch_related_objects()
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1328, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2397, in prefetch_related_objects
+    obj_list, additional_lookups = prefetch_one_level(
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 2646, in prefetch_one_level
+    qs = manager._apply_rel_filters(lookup.queryset)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\fields\related_descriptors.py", line 719, in _apply_rel_filters
+    queryset = queryset.filter(**self.core_filters)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1493, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\db\models\query.py", line 1505, in _filter_or_exclude
+    raise TypeError("Cannot filter a query once a slice has been taken.")
+TypeError: Cannot filter a query once a slice has been taken.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\views\decorators\vary.py", line 31, in _view_wrapper
+    response = func(request, *args, **kwargs)
+  File "C:\Users\Atharva\Documents\Display\Portfolio\info\views.py", line 205, in projects_view
+    return render(request, 'info/projects.html', context, status=500)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\Atharva\Documents\Display\.venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: info/projects.html
+[ERROR] 2025-09-22 21:35:00,723 django.request 18052 25024 Internal Server Error: /atharva/projects/
+[ERROR] 2025-09-22 21:35:08,064 django.request 18052 14080 Internal Server Error: /atharva/projects/
+[ERROR] 2025-09-22 21:35:35,427 django.request 18052 23304 Internal Server Error: /atharva/projects/
+[ERROR] 2025-09-22 21:35:38,031 django.request 18052 25892 Internal Server Error: /atharva/projects/
+[ERROR] 2025-09-22 21:35:47,280 django.request 18052 23304 Internal Server Error: /atharva/projects/
+[ERROR] 2025-09-22 21:35:49,166 django.request 18052 1748 Internal Server Error: /atharva/projects/

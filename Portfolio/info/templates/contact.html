@@ -1,0 +1,1135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block meta_description %}
+<meta name="description" content="{{ page_description }}">
+<meta name="keywords" content="Contact Atharva Mandle, Django Developer, Web Development, Nagpur Developer, Freelance">
+<meta name="author" content="Atharva Mandle">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_description }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{% static 'images/contact-og.jpg' %}">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title }}">
+<meta name="twitter:description" content="{{ page_description }}">
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Contact Page Theme */
+    :root {
+        --deep-navy: #0F172A;
+        --slate: #1E293B;
+        --neon-cyan: #22D3EE;
+        --cool-gray: #64748B;
+        --light-gray: #F4F4F4;
+        --glow-cyan: 34, 211, 238;
+        --glow-purple: 124, 77, 255;
+        --glow-blue: 59, 130, 246;
+        --error-red: #EF4444;
+        --success-green: #22C55E;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Contact Hero Section - IMPROVED */
+    .contact-hero {
+        background: linear-gradient(135deg, 
+            var(--deep-navy) 0%, 
+            rgba(var(--glow-purple), 0.1) 30%,
+            rgba(var(--glow-cyan), 0.1) 70%,
+            var(--slate) 100%
+        );
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        margin-top: -80px;
+        padding: 120px 1rem 4rem;
+    }
+
+    /* Enhanced Floating Elements */
+    .tech-orbit {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    .tech-tag-float {
+        position: absolute;
+        background: rgba(var(--glow-cyan), 0.1);
+        color: var(--neon-cyan);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        border: 1px solid rgba(var(--glow-cyan), 0.3);
+        font-size: 0.9rem;
+        font-weight: 600;
+        backdrop-filter: blur(10px);
+        animation: float 20s linear infinite;
+        user-select: none;
+    }
+
+    .tech-tag-1 { top: 15%; left: 10%; animation-delay: 0s; }
+    .tech-tag-2 { top: 25%; right: 15%; animation-delay: -3s; }
+    .tech-tag-3 { bottom: 30%; left: 20%; animation-delay: -6s; }
+    .tech-tag-4 { bottom: 20%; right: 25%; animation-delay: -9s; }
+    .tech-tag-5 { top: 60%; left: 5%; animation-delay: -12s; }
+    .tech-tag-6 { top: 70%; right: 10%; animation-delay: -15s; }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px) rotate(0deg) scale(1);
+            opacity: 0.6;
+        }
+        25% {
+            transform: translateY(-30px) rotate(90deg) scale(1.1);
+            opacity: 0.8;
+        }
+        50% {
+            transform: translateY(-60px) rotate(180deg) scale(1.2);
+            opacity: 1;
+        }
+        75% {
+            transform: translateY(-30px) rotate(270deg) scale(1.1);
+            opacity: 0.8;
+        }
+    }
+
+    /* Working 3D Globe */
+    #globe-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        opacity: 0.4;
+        pointer-events: none;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        max-width: 900px;
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .hero-title {
+        font-family: 'Orbitron', monospace;
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        font-weight: 900;
+        color: var(--neon-cyan);
+        margin-bottom: 1.5rem;
+        text-shadow: 0 0 30px rgba(var(--glow-cyan), 0.6);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.1rem, 3vw, 1.4rem);
+        color: var(--light-gray);
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1.2s ease-out 0.3s forwards;
+    }
+
+    /* FIXED Status Badges with Content */
+    .status-badges {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1.2s ease-out 0.6s forwards;
+        flex-wrap: wrap;
+    }
+
+    .status-badge {
+        background: rgba(var(--glow-cyan), 0.15);
+        color: var(--light-gray);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        border: 1px solid rgba(var(--glow-cyan), 0.3);
+        font-size: 1rem;
+        font-weight: 600;
+        backdrop-filter: blur(15px);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        min-width: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .status-badge::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(var(--glow-cyan), 0.2), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .status-badge:hover {
+        background: rgba(var(--glow-cyan), 0.25);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(var(--glow-cyan), 0.3);
+    }
+
+    .status-badge:hover::before {
+        left: 100%;
+    }
+
+    .status-badge.available {
+        border-color: rgba(34, 197, 94, 0.5);
+        background: rgba(34, 197, 94, 0.15);
+    }
+
+    .status-badge.available:hover {
+        background: rgba(34, 197, 94, 0.25);
+        box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+    }
+
+    /* SEPARATE CONTACT CARDS SECTION */
+    .contact-cards-section {
+        background: var(--slate);
+        padding: 6rem 1rem;
+        position: relative;
+    }
+
+    .section-title {
+        font-family: 'Orbitron', monospace;
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 4rem;
+        color: var(--neon-cyan);
+        text-shadow: 0 0 20px rgba(var(--glow-cyan), 0.4);
+    }
+
+    .contact-options {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .contact-card {
+        background: linear-gradient(145deg, var(--deep-navy), rgba(var(--glow-cyan), 0.05));
+        border: 1px solid var(--cool-gray);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+        min-height: 380px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .contact-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(var(--glow-cyan), 0.1), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .contact-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        border-color: var(--neon-cyan);
+        box-shadow: 0 30px 60px rgba(var(--glow-cyan), 0.3);
+    }
+
+    .contact-card:hover::before {
+        left: 100%;
+    }
+
+    .card-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--neon-cyan), rgba(var(--glow-blue), 0.8));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 2rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 30px rgba(var(--glow-cyan), 0.3);
+    }
+
+    .contact-card:hover .card-icon {
+        transform: scale(1.15) rotate(10deg);
+        box-shadow: 0 20px 40px rgba(var(--glow-cyan), 0.5);
+    }
+
+    .card-title {
+        font-family: 'Orbitron', monospace;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--neon-cyan);
+        margin-bottom: 1.5rem;
+    }
+
+    .card-content {
+        color: var(--light-gray);
+        line-height: 1.7;
+        margin-bottom: 2rem;
+        flex-grow: 1;
+        font-size: 1rem;
+    }
+
+    .card-content p {
+        margin-bottom: 0.8rem;
+    }
+
+    .card-content strong {
+        color: var(--neon-cyan);
+        font-weight: 600;
+    }
+
+    /* Enhanced card action buttons */
+    .card-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        padding: 1rem 2rem;
+        background: var(--neon-cyan);
+        color: var(--deep-navy);
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
+        cursor: pointer;
+        font-family: 'Orbitron', monospace;
+        font-size: 0.9rem;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .card-action:hover {
+        background: var(--cool-gray);
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(var(--glow-cyan), 0.4);
+    }
+
+    /* Social Links Enhancement */
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+
+    .social-link {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--neon-cyan), rgba(var(--glow-blue), 0.8));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: var(--deep-navy);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .social-link:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 15px 30px rgba(var(--glow-cyan), 0.4);
+    }
+
+    /* Enhanced Contact Form */
+    .contact-form-section {
+        background: var(--deep-navy);
+        padding: 6rem 1rem;
+        position: relative;
+    }
+
+    .form-container {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+    }
+
+    .form-title {
+        font-family: 'Orbitron', monospace;
+        font-size: clamp(2rem, 6vw, 3rem);
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: var(--neon-cyan);
+        text-shadow: 0 0 20px rgba(var(--glow-cyan), 0.4);
+    }
+
+    .contact-form {
+        background: linear-gradient(145deg, var(--slate), rgba(var(--glow-cyan), 0.05));
+        border: 1px solid var(--cool-gray);
+        border-radius: 20px;
+        padding: 3rem;
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .form-group {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .form-label {
+        display: block;
+        color: var(--light-gray);
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .form-input,
+    .form-textarea {
+        width: 100%;
+        padding: 1.2rem 1.5rem;
+        background: var(--deep-navy);
+        border: 2px solid var(--cool-gray);
+        border-radius: 12px;
+        color: var(--light-gray);
+        font-size: 1rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        resize: vertical;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+        outline: none;
+        border-color: var(--neon-cyan);
+        box-shadow: 0 0 25px rgba(var(--glow-cyan), 0.3);
+        transform: translateY(-2px);
+    }
+
+    .form-textarea {
+        min-height: 180px;
+    }
+
+    /* IMPROVED SEND BUTTON */
+    .form-submit {
+        width: 100%;
+        padding: 1.4rem;
+        background: linear-gradient(135deg, var(--neon-cyan), rgba(var(--glow-blue), 0.8));
+        color: var(--deep-navy);
+        border: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: 'Orbitron', monospace;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .form-submit:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(var(--glow-cyan), 0.4);
+    }
+
+    .send-icon {
+        transition: transform 0.3s ease;
+    }
+
+    .form-submit:hover .send-icon {
+        transform: translateX(3px);
+    }
+
+    /* Messages */
+    .messages {
+        margin-bottom: 2rem;
+    }
+
+    .alert {
+        padding: 1.2rem 1.5rem;
+        margin-bottom: 1rem;
+        border-radius: 12px;
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
+        animation: slideInDown 0.5s ease-out;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .alert-success {
+        background: rgba(var(--success-green), 0.1);
+        color: var(--success-green);
+        border: 1px solid rgba(var(--success-green), 0.3);
+    }
+
+    .alert-error {
+        background: rgba(var(--error-red), 0.1);
+        color: var(--error-red);
+        border: 1px solid rgba(var(--error-red), 0.3);
+    }
+
+    /* Enhanced Toast */
+    .toast {
+        position: fixed;
+        top: 120px;
+        right: 20px;
+        background: linear-gradient(135deg, var(--neon-cyan), rgba(var(--glow-blue), 0.8));
+        color: var(--deep-navy);
+        padding: 1.2rem 2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        z-index: 1000;
+        transform: translateX(400px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 30px rgba(var(--glow-cyan), 0.3);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .toast.show {
+        transform: translateX(0);
+    }
+
+    /* Final CTA */
+    .final-cta {
+        background: var(--slate);
+        padding: 4rem 1rem;
+        text-align: center;
+    }
+
+    .cta-quote {
+        font-family: 'Orbitron', monospace;
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+        font-weight: 700;
+        color: var(--light-gray);
+        line-height: 1.4;
+    }
+
+    /* Character Counter */
+    .character-counter {
+        text-align: right;
+        font-size: 0.8rem;
+        color: var(--cool-gray);
+        margin-top: 0.5rem;
+        transition: color 0.3s ease;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideInDown {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    /* Enhanced Responsive Design */
+    @media (max-width: 1200px) {
+        .contact-options {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .contact-hero {
+            margin-top: -60px;
+            padding: 100px 1rem 3rem;
+        }
+
+        .contact-options {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            min-height: 300px;
+            padding: 2rem;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .status-badges {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .tech-orbit {
+            display: none;
+        }
+
+        #globe-canvas {
+            opacity: 0.2;
+        }
+
+        .toast {
+            right: 10px;
+            left: 10px;
+            transform: translateY(-100px);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .contact-card {
+            padding: 1.5rem;
+            min-height: auto;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+        }
+
+        .contact-form {
+            padding: 2rem 1.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Contact Hero Section - IMPROVED -->
+<section class="contact-hero">
+    <!-- Floating Tech Tags -->
+    <div class="tech-orbit">
+        <div class="tech-tag-float tech-tag-1">Django</div>
+        <div class="tech-tag-float tech-tag-2">React</div>
+        <div class="tech-tag-float tech-tag-3">ML</div>
+        <div class="tech-tag-float tech-tag-4">DevOps</div>
+        <div class="tech-tag-float tech-tag-5">Python</div>
+        <div class="tech-tag-float tech-tag-6">AWS</div>
+    </div>
+
+    <!-- Working 3D Globe Canvas -->
+    <canvas id="globe-canvas"></canvas>
+
+    <div class="hero-content">
+        <h1 class="hero-title">Let's Build Something Amazing</h1>
+        <p class="hero-subtitle">
+            Whether it's a collaboration, project idea, or just a hello — I'm always open to meaningful conversations and exciting opportunities.
+        </p>
+
+        <!-- FIXED Status Badges with Content -->
+        <div class="status-badges">
+            <div class="status-badge available">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v6m0 6v6"></path>
+                    <path d="m21 12-6-6-6 6"></path>
+                </svg>
+                Available for Hire
+            </div>
+            <div class="status-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+                Open to Collaboration
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SEPARATE CONTACT CARDS SECTION -->
+<section class="contact-cards-section">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        
+        <div class="contact-options">
+            <!-- Email Card -->
+            <div class="contact-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <h3 class="card-title">Email</h3>
+                <div class="card-content">
+                    <p><strong>Professional:</strong><br>{{ email_college }}</p>
+                    <p><strong>Personal:</strong><br>{{ email_personal }}</p>
+                </div>
+                <button class="card-action" onclick="copyEmail('personal')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    Copy Email
+                </button>
+            </div>
+
+            <!-- Social Card -->
+            <div class="contact-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </div>
+                <h3 class="card-title">Social</h3>
+                <div class="card-content">
+                    <p>Connect with me on social platforms for updates and collaborations</p>
+                </div>
+                <div class="social-links">
+                    <a href="{{ github_url }}" target="_blank" rel="noopener" class="social-link" title="GitHub">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="{{ linkedin_url }}" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    {% if twitter_url %}
+                    <a href="{{ twitter_url }}" target="_blank" rel="noopener" class="social-link" title="Twitter">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Location Card -->
+            <div class="contact-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <h3 class="card-title">Location</h3>
+                <div class="card-content">
+                    <p><strong>Based in:</strong> {{ location }} 🌏</p>
+                    <p><strong>Work:</strong> Available Remote</p>
+                    <p><strong>Timezone:</strong> IST (GMT+5:30)</p>
+                </div>
+                <button class="card-action" onclick="highlightLocation()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M2 12h20"></path>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    View on Globe
+                </button>
+            </div>
+
+            <!-- Collaboration Card -->
+            <div class="contact-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3 class="card-title">Collaboration</h3>
+                <div class="card-content">
+                    <p><strong>Open to:</strong> Freelance projects</p>
+                    <p><strong>Interested in:</strong> Open-source collaboration</p>
+                    <p><strong>Response time:</strong> Within 24 hours</p>
+                </div>
+                <button class="card-action" onclick="scrollToForm()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Let's Talk
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form-section" id="contact-form">
+    <div class="form-container">
+        <h2 class="form-title">Send me feedback about my portfolio</h2>
+        
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    {% if message.tags == 'success' %}
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                    {% else %}
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                    {% endif %}
+                </svg>
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form method="POST" class="contact-form" id="contactForm">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name *</label>
+                    <input type="text" id="name" name="name" class="form-input" required minlength="2" maxlength="100">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address *</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-input" maxlength="200" placeholder="What would you like to discuss?">
+            </div>
+            
+            <div class="form-group">
+                <label for="message" class="form-label">Message *</label>
+                <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project, idea, or just say hello! I'd love to hear from you." required minlength="10" maxlength="1000"></textarea>
+                <div class="character-counter">0/1000</div>
+            </div>
+            
+            <button type="submit" class="form-submit" id="submitBtn">
+                <span class="submit-text">Send Message</span>
+                <svg class="send-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+                </svg>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+    <div class="container">
+        <h2 class="cta-quote">"Great ideas deserve great execution — let's make it happen together!"</h2>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// Working 3D Globe Implementation
+class WorkingGlobe {
+    constructor() {
+        this.canvas = document.getElementById('globe-canvas');
+        if (!this.canvas) return;
+        
+        this.isMobile = window.innerWidth < 768;
+        this.scene = new THREE.Scene();
+        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        this.renderer = new THREE.WebGLRenderer({ 
+            canvas: this.canvas, 
+            alpha: true,
+            antialias: !this.isMobile
+        });
+        
+        this.init();
+        this.createGlobe();
+        this.addLights();
+        this.animate();
+        this.handleInteraction();
+    }
+
+    init() {
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        this.camera.position.z = 5;
+    }
+
+    createGlobe() {
+        // Create wireframe globe
+        const geometry = new THREE.SphereGeometry(1.5, 64, 64);
+        const material = new THREE.MeshBasicMaterial({
+            color: 0x22D3EE,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.6
+        });
+
+        this.globe = new THREE.Mesh(geometry, material);
+        this.scene.add(this.globe);
+
+        // Add location marker for Nagpur
+        this.addLocationMarker();
+    }
+
+    addLocationMarker() {
+        // Nagpur coordinates: 21.1458°N, 79.0882°E
+        const lat = 21.1458 * (Math.PI / 180);
+        const lon = 79.0882 * (Math.PI / 180);
+        
+        const radius = 1.5;
+        const x = radius * Math.cos(lat) * Math.cos(lon);
+        const y = radius * Math.sin(lat);
+        const z = radius * Math.cos(lat) * Math.sin(lon);
+
+        const markerGeometry = new THREE.SphereGeometry(0.08, 16, 16);
+        const markerMaterial = new THREE.MeshBasicMaterial({ 
+            color: 0x22D3EE,
+            transparent: true,
+            opacity: 1
+        });
+
+        this.marker = new THREE.Mesh(markerGeometry, markerMaterial);
+        this.marker.position.set(x, y, z);
+        this.scene.add(this.marker);
+
+        // Animate marker
+        this.animateMarker();
+    }
+
+    animateMarker() {
+        const animate = () => {
+            if (this.marker) {
+                const scale = 1 + 0.5 * Math.sin(Date.now() * 0.005);
+                this.marker.scale.setScalar(scale);
+            }
+            requestAnimationFrame(animate);
+        };
+        animate();
+    }
+
+    addLights() {
+        const ambientLight = new THREE.AmbientLight(0x22D3EE, 0.6);
+        this.scene.add(ambientLight);
+        
+        const pointLight = new THREE.PointLight(0x22D3EE, 1, 100);
+        pointLight.position.set(10, 10, 10);
+        this.scene.add(pointLight);
+    }
+
+    animate() {
+        requestAnimationFrame(() => this.animate());
+        
+        if (this.globe) {
+            this.globe.rotation.y += 0.003;
+            this.globe.rotation.x += 0.001;
+        }
+        
+        this.renderer.render(this.scene, this.camera);
+    }
+
+    handleInteraction() {
+        window.addEventListener('resize', () => {
+            this.camera.aspect = window.innerWidth / window.innerHeight;
+            this.camera.updateProjectionMatrix();
+            this.renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    }
+
+    highlightLocation() {
+        if (this.marker) {
+            // Flash the marker
+            let flashCount = 0;
+            const flash = () => {
+                if (flashCount < 6 && this.marker) {
+                    this.marker.material.opacity = this.marker.material.opacity === 1 ? 0.3 : 1;
+                    flashCount++;
+                    setTimeout(flash, 300);
+                }
+            };
+            flash();
+        }
+    }
+}
+
+// Enhanced functionality
+async function copyEmail(type) {
+    const emails = {
+        'college': '{{ email_college }}',
+        'personal': '{{ email_personal }}'
+    };
+    
+    const email = emails[type] || emails['personal'];
+    
+    try {
+        await navigator.clipboard.writeText(email);
+        showToast(`✅ ${email} copied to clipboard!`);
+    } catch (err) {
+        // Fallback
+        const textArea = document.createElement('textarea');
+        textArea.value = email;
+        textArea.style.opacity = '0';
+        textArea.style.position = 'fixed';
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showToast(`✅ ${email} copied to clipboard!`);
+    }
+}
+
+function showToast(message) {
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) existingToast.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = message;
+    document.body.appendChild(toast);
+
+    setTimeout(() => toast.classList.add('show'), 100);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 400);
+    }, 3000);
+}
+
+function scrollToForm() {
+    document.getElementById('contact-form').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+function highlightLocation() {
+    if (window.globe) {
+        window.globe.highlightLocation();
+        showToast('📍 Highlighted Nagpur, India on the globe!');
+    } else {
+        showToast('📍 Located in Nagpur, India');
+    }
+}
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize working globe
+    window.globe = new WorkingGlobe();
+    
+    // Character counter
+    const messageTextarea = document.getElementById('message');
+    const counter = document.querySelector('.character-counter');
+    
+    messageTextarea.addEventListener('input', (e) => {
+        const currentLength = e.target.value.length;
+        counter.textContent = `${currentLength}/1000`;
+        counter.style.color = currentLength > 800 ? 'var(--error-red)' : 'var(--cool-gray)';
+    });
+
+    // Form validation
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+        const submitBtn = document.getElementById('submitBtn');
+        const submitText = submitBtn.querySelector('.submit-text');
+        
+        submitBtn.disabled = true;
+        submitText.textContent = 'Sending...';
+        showToast('📤 Sending your message...');
+    });
+
+    // Scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '50px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe contact cards
+    document.querySelectorAll('.contact-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(50px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
+    });
+});
+</script>
+{% endblock %}
