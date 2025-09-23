@@ -1,0 +1,6 @@
+.env
+# .gitignore
+.env
+.env.production
+.env.local
+*.env

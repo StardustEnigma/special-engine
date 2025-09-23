@@ -77,10 +77,10 @@ def sitemap_xml(request):
 def security_txt(request):
     """Security.txt for responsible disclosure"""
     lines = [
-        "Contact: atharvamandle19@gmail.comv",  # Update with your email
-        "Expires: 2025-12-31T23:59:59.000Z",
+        "Contact: atharvamandle19@gmail.com",
+        "Expires: 2026-12-31T23:59:59.000Z",
         "Preferred-Languages: en",
-        "Canonical: https://atharvamandle.me/.well-known/security.txt",  # Update with your domain
+        "Canonical: https://atharvamandle.me/.well-known/security.txt",  # Updated with your domain
     ]
     return HttpResponse("\n".join(lines), content_type="text/plain")
 
@@ -154,13 +154,12 @@ if settings.DEBUG:
     urlpatterns += static('/projects/', document_root=BASE_DIR / 'projects')
 
 # Production-specific patterns
-else:
-    # Error pages for production
-    handler404 = 'Portfolio.views.custom_404'
-    handler500 = 'Portfolio.views.custom_500'
-    handler403 = 'Portfolio.views.custom_403'
-    handler400 = 'Portfolio.views.custom_400'
-
+# else:
+#     # Error pages for production
+#      handler404 = 'Portfolio.urls.custom_404'
+#      handler500 = 'Portfolio.urls.custom_500'
+#      handler403 = 'Portfolio.urls.custom_403'
+#      handler400 = 'Portfolio.urls.custom_400'
 # Advanced URL patterns with regex (if needed for complex routing)
 urlpatterns += [
     # Catch-all for legacy URLs or redirects
@@ -230,10 +229,13 @@ def custom_400(request, exception=None):
     }, status=400)
 
 # Performance monitoring URLs (for production)
-if not settings.DEBUG and hasattr(settings, 'MONITORING_ENABLED') and settings.MONITORING_ENABLED:
-    urlpatterns += [
-        path('monitoring/', include([
-            path('health/', health_check, name='monitoring-health'),
-            path('status/', lambda r: HttpResponse('OK'), name='monitoring-status'),
-        ])),
-    ]
+# URL pattern for handling trailing slashes consistently
+# if not settings.DEBUG:
+#     urlpatterns += [
+#         re_path(r'^(?!__reload__)(.*)/$', 
+#                 lambda request, path: RedirectView.as_view(
+#                     url=f'/{path}', 
+#                     permanent=True
+#                 )(request) if path and not path.endswith('/') else None,
+#                 name='remove-trailing-slash'),
+#     ]

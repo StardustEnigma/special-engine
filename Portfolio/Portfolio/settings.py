@@ -10,25 +10,57 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
+import dj_database_url
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+# ==============================================================================
+# CORE SETTINGS
+# ==============================================================================
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-raueq!^^o&ztw48=2^ks7b0(c98b4hrah-big8njy7g+_8z+_8'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+# Allowed hosts
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost').split(',')
+if not DEBUG:
+    ALLOWED_HOSTS.extend([
+        'atharvamandle.me',
+        'www.atharvamandle.me', 
+        '.onrender.com',  # For Render subdomains
+    ])
+# ==============================================================================
+# SECURITY SETTINGS
+# ==============================================================================
 
+# HTTPS/SSL Configuration
+SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=False, cast=bool)
+SECURE_HSTS_SECONDS = config('SECURE_HSTS_SECONDS', default=0, cast=int)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = config('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=False, cast=bool)
+SECURE_HSTS_PRELOAD = config('SECURE_HSTS_PRELOAD', default=False, cast=bool)
 
-# Application definition
+# Cookie Security
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = True
+
+# Additional Security Headers
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
+
+# ==============================================================================
+# APPLICATION DEFINITION
+# ==============================================================================
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,8 +73,9 @@ INSTALLED_APPS = [
     'theme',
     'info'
 ]
+
+# Add development apps only in DEBUG mode
 if DEBUG:
-    # Add django_browser_reload only in DEBUG mode
     INSTALLED_APPS += ['django_browser_reload']
 
 TAILWIND_APP_NAME = 'theme'
@@ -55,12 +88,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware"
-
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+# Add development middleware only in DEBUG mode
+if DEBUG:
+    MIDDLEWARE.append('django_browser_reload.middleware.BrowserReloadMiddleware')
+
 ROOT_URLCONF = 'Portfolio.urls'
-NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+NPM_BIN_PATH = config('NPM_BIN_PATH', default='/usr/bin/npm')
+
+# ==============================================================================
+# TEMPLATES
+# ==============================================================================
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -78,24 +119,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Portfolio.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+# ==============================================================================
+# DATABASE
+# ==============================================================================
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(
+        config('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 }
-import os
-# settings.py
-MEDIA_URL = '/projects/'
-MEDIA_ROOT = BASE_DIR / 'projects'
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
+# ==============================================================================
+# PASSWORD VALIDATION
+# ==============================================================================
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -112,52 +150,50 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
+# ==============================================================================
+# INTERNATIONALIZATION
+# ==============================================================================
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
+# ==============================================================================
+# STATIC & MEDIA FILES
+# ==============================================================================
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_URL = 'static/'
+# Media files
+MEDIA_URL = '/projects/'
+MEDIA_ROOT = BASE_DIR / 'projects'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+# ==============================================================================
+# DEVELOPMENT SETTINGS
+# ==============================================================================
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# settings.py
+if DEBUG:
+    # Allow additional hosts for development
+    ALLOWED_HOSTS.extend([
+        ".ngrok-free.app",  # ngrok's default domain
+    ])
+    
+    # CSRF trusted origins for development
+    CSRF_TRUSTED_ORIGINS = [
+        "https://*.ngrok-free.app",
+    ]
 
-# Allow your local and ngrok domains
-ALLOWED_HOSTS = [
-    "127.0.0.1",
-    "localhost",
-    ".ngrok-free.app",   # ngrok’s new default domain
-]
+# ==============================================================================
+# LOGGING
+# ==============================================================================
 
-# If you want CSRF protection to work when posting forms via ngrok
-CSRF_TRUSTED_ORIGINS = [
-    "https://*.ngrok-free.app",
-]
-import os
-from pathlib import Path
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Create logs directory if it doesn't exist (this line does it automatically!)
+# Create logs directory if it doesn't exist
 LOGS_DIR = BASE_DIR / 'logs'
-LOGS_DIR.mkdir(exist_ok=True)  # This creates the 'logs' folder automatically
+LOGS_DIR.mkdir(exist_ok=True)
 
-# Enhanced logging configuration
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -180,7 +216,7 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': str(LOGS_DIR / 'django.log'),  # Convert to string for compatibility
+            'filename': str(LOGS_DIR / 'django.log'),
             'maxBytes': 1024 * 1024 * 10,  # 10 MB
             'backupCount': 5,
             'formatter': 'verbose',
@@ -188,7 +224,7 @@ LOGGING = {
         'error_file': {
             'level': 'ERROR',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': str(LOGS_DIR / 'django_errors.log'),  # Convert to string for compatibility
+            'filename': str(LOGS_DIR / 'django_errors.log'),
             'maxBytes': 1024 * 1024 * 10,  # 10 MB
             'backupCount': 5,
             'formatter': 'verbose',
@@ -196,11 +232,11 @@ LOGGING = {
     },
     'root': {
         'level': 'INFO',
-        'handlers': ['console'],
+        'handlers': ['console', 'file'] if not DEBUG else ['console'],
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'file'],
+            'handlers': ['console', 'file'] if not DEBUG else ['console'],
             'level': 'INFO',
             'propagate': False,
         },
@@ -210,18 +246,15 @@ LOGGING = {
             'propagate': False,
         },
         'info': {
-            'handlers': ['console', 'file'],
+            'handlers': ['console', 'file'] if not DEBUG else ['console'],
             'level': 'INFO',
-            'propagate': False,
-        },
-        'info.views': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
             'propagate': False,
         },
     },
 }
 
-# Only add file logging in production
-if not DEBUG:
-    LOGGING['root']['handlers'].append('file')
+# ==============================================================================
+# DEFAULT SETTINGS
+# ==============================================================================
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
