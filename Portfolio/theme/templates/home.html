@@ -826,7 +826,7 @@
             <span class="tech-tag">Git</span>
         </div>
 
-        <a href="" class="cta-button">
+        <a href="/skills/" class="cta-button">
             View All Skills & Expertise
         </a>
     </div>
@@ -867,88 +867,134 @@
 <script>
     // Three.js Profile Animation - Mobile Optimized
     function initProfileAnimation() {
-        const canvas = document.getElementById('profile-canvas');
-        if (!canvas || !window.THREE) return;
+    const canvas = document.getElementById('profile-canvas');
+    if (!canvas || !window.THREE) return;
 
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ 
-            canvas: canvas, 
-            alpha: true,
-            antialias: window.innerWidth >= 768,
-            powerPreference: window.innerWidth < 768 ? "low-power" : "default"
-        });
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    
+    // Smart device detection
+    const isMobile = window.innerWidth < 768;
+    const isLowPower = /Mobile|Android|iPhone|iPad/.test(navigator.userAgent);
+    
+    const renderer = new THREE.WebGLRenderer({ 
+        canvas: canvas, 
+        alpha: true,
+        antialias: window.innerWidth >= 768, // Better antialiasing logic
+        powerPreference: isLowPower ? "low-power" : "default"
+    });
 
-        // Responsive sizing
-        const updateSize = () => {
-            const container = canvas.parentElement;
-            const rect = container.getBoundingClientRect();
-            const size = Math.min(rect.width, rect.height);
-            renderer.setSize(size, size);
-            camera.aspect = 1;
-            camera.updateProjectionMatrix();
-        };
+    // Responsive sizing
+    const updateSize = () => {
+        const container = canvas.parentElement;
+        const rect = container.getBoundingClientRect();
+        const size = Math.min(rect.width, rect.height);
+        renderer.setSize(size, size);
+        camera.aspect = 1;
+        camera.updateProjectionMatrix();
+    };
 
-        updateSize();
-        window.addEventListener('resize', updateSize);
+    updateSize();
+    window.addEventListener('resize', updateSize);
 
-        const group = new THREE.Group();
-        
-        // Responsive complexity
-        const isMobile = window.innerWidth < 768;
-        const geometry = new THREE.IcosahedronGeometry(0.8, isMobile ? 0 : 1);
-        const material = new THREE.MeshBasicMaterial({ 
-            color: 0x00E5FF,
-            wireframe: true,
+    const group = new THREE.Group();
+    
+    // Enhanced geometry - better looking but still consistent
+    const geometry = new THREE.IcosahedronGeometry(1.0, 2); // Larger size, higher detail
+    const material = new THREE.MeshBasicMaterial({ 
+        color: 0x00E5FF,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.6 // Slightly more transparent for elegance
+    });
+    
+    const mesh = new THREE.Mesh(geometry, material);
+    group.add(mesh);
+    
+    // Add inner sphere for depth
+    const innerGeometry = new THREE.SphereGeometry(0.7, 16, 16);
+    const innerMaterial = new THREE.MeshBasicMaterial({ 
+        color: 0x2196F3,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.3
+    });
+    const innerMesh = new THREE.Mesh(innerGeometry, innerMaterial);
+    group.add(innerMesh);
+    
+    // Enhanced particles with better distribution
+    const particleCount = 12; // Same count for all devices
+    for(let i = 0; i < particleCount; i++) {
+        const smallGeometry = new THREE.SphereGeometry(0.04, 8, 8);
+        const smallMaterial = new THREE.MeshBasicMaterial({ 
+            color: i % 2 === 0 ? 0x00E5FF : 0x7C4DFF, // Alternating colors
             transparent: true,
             opacity: 0.8
         });
+        const smallMesh = new THREE.Mesh(smallGeometry, smallMaterial);
         
-        const mesh = new THREE.Mesh(geometry, material);
-        group.add(mesh);
+        // Better 3D distribution
+        const angle = (i / particleCount) * Math.PI * 2;
+        const radius = 1.8 + Math.sin(i * 0.5) * 0.3; // Varying radius
+        const height = Math.sin(i * 0.3) * 0.5; // Varying height
         
-        // Responsive particle count
-        const particleCount = isMobile ? 4 : 8;
-        for(let i = 0; i < particleCount; i++) {
-            const smallGeometry = new THREE.SphereGeometry(0.05, 6, 6);
-            const smallMaterial = new THREE.MeshBasicMaterial({ color: 0x2196F3 });
-            const smallMesh = new THREE.Mesh(smallGeometry, smallMaterial);
-            
-            const angle = (i / particleCount) * Math.PI * 2;
-            smallMesh.position.set(Math.cos(angle) * 1.5, Math.sin(angle) * 1.5, 0);
-            group.add(smallMesh);
-        }
-
-        scene.add(group);
-        camera.position.z = 3;
-
-        let animationId;
-        const animate = () => {
-            animationId = requestAnimationFrame(animate);
-            group.rotation.x += 0.005;
-            group.rotation.y += 0.01;
-            renderer.render(scene, camera);
-        };
-
-        // Start animation only when visible
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animate();
-                } else if (animationId) {
-                    cancelAnimationFrame(animationId);
-                }
-            });
-        });
-
-        observer.observe(canvas);
-
-        // Cleanup
-        window.addEventListener('beforeunload', () => {
-            if (animationId) cancelAnimationFrame(animationId);
-            observer.disconnect();
-        });
+        smallMesh.position.set(
+            Math.cos(angle) * radius,
+            height,
+            Math.sin(angle) * radius
+        );
+        group.add(smallMesh);
     }
+
+    scene.add(group);
+    camera.position.z = 4; // Moved back slightly for better view
+
+    let animationId;
+    const animate = () => {
+        animationId = requestAnimationFrame(animate);
+        
+        // More dynamic rotation
+        group.rotation.x += 0.003;
+        group.rotation.y += 0.007;
+        
+        // Animate inner sphere separately
+        if (innerMesh) {
+            innerMesh.rotation.x -= 0.002;
+            innerMesh.rotation.y -= 0.005;
+        }
+        
+        // Animate particles
+        group.children.forEach((child, index) => {
+            if (child !== mesh && child !== innerMesh) {
+                child.rotation.x += 0.01;
+                child.rotation.y += 0.01;
+                child.position.y += Math.sin(Date.now() * 0.001 + index) * 0.002;
+            }
+        });
+        
+        renderer.render(scene, camera);
+    };
+
+    // Start animation only when visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animate();
+            } else if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+        });
+    });
+
+    observer.observe(canvas);
+
+    // Cleanup
+    window.addEventListener('beforeunload', () => {
+        if (animationId) cancelAnimationFrame(animationId);
+        observer.disconnect();
+    });
+}
+
 
     // Contact Animation - Mobile Optimized
     function initContactAnimation() {
